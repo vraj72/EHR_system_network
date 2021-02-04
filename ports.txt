@@ -1,0 +1,43 @@
+Org1 With ASS server{7051-7060}
+    peer0 {7051}
+    Couch Db0 {5984}
+    CA server {7054}
+    Chaincode addess {7052}
+    peer.js {@winston add here}
+
+Org2 With Hospital A {9051-9060}
+    peer0 {9051}
+    Couch Db1 {7984}
+    CA server {8054}
+    Chaincode addess {9052}
+    peer.js {@winston add here}
+
+Org3 With Hospital B {8011-8020}
+    peer0 {8011}
+    Couch Db2 {8013}
+    CA server {8014}
+    Chaincode addess {8012}
+    peer.js {8015}
+
+Org4 With Lab A{7091-7999}
+    peer0 {7091}
+    Couch Db3 {7093}
+    CA server {7094}
+    Chaincode addess {7092}
+    peer.js {7095}
+
+Org5 With Lab B {8031-8040}
+    peer0 {8031}
+    Couch Db4 {8033}
+    CA server {8034}
+    Chaincode addess {8032}
+    peer.js {8035}
+
+Authentication server
+    app.js {8000}
+
+CA order 9054
+
+order 7050
+
+
