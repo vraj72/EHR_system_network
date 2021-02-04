@@ -1,0 +1,1 @@
+export { PatientDetailsContract } from './PatientDetails';
