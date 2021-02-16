@@ -2,22 +2,22 @@ import { Gateway, Wallets } from 'fabric-network';
 import FabricCAServices from 'fabric-ca-client';
 import path from 'path';
 //@ts-ignore
-import { buildCCPOrg1, buildWallet } from './../../test-application/javascript/AppUtil.js';
+import { buildCCPOrg3, buildWallet } from './../../test-application/javascript/AppUtil.js';
 //@ts-ignore
 import { buildCAClient, registerAndEnrollUser, enrollAdmin } from './../../test-application/javascript/CAUtil.js';
 const __dirname = path.resolve();
-const mspOrg1 = 'Org1MSP';
+const mspOrg3 = 'Org3MSP';
 const walletPath = path.join(__dirname, 'wallet');
-const org1UserId = 'appUser';
-const ccp = buildCCPOrg1();
-const caClient = buildCAClient(FabricCAServices, ccp, 'ca.org1.example.com');
+const org3UserId = 'appUser';
+const ccp = buildCCPOrg3();
+const caClient = buildCAClient(FabricCAServices, ccp, 'ca.org3.example.com');
 const wallet = await buildWallet(Wallets, walletPath);
-await enrollAdmin(caClient, wallet, mspOrg1);
-await registerAndEnrollUser(caClient, wallet, mspOrg1, org1UserId, 'org1.department1');
+await enrollAdmin(caClient, wallet, mspOrg3);
+await registerAndEnrollUser(caClient, wallet, mspOrg3, org3UserId, 'org3.department1');
 const gateway = new Gateway();
 await gateway.connect(ccp, {
     wallet,
-    identity: org1UserId,
+    identity: org3UserId,
     discovery: { enabled: true, asLocalhost: true }
 });
 export default gateway;

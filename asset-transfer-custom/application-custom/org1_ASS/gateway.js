@@ -2,9 +2,9 @@ import { Gateway, Wallets } from 'fabric-network';
 import FabricCAServices from 'fabric-ca-client';
 import path from 'path';
 //@ts-ignore
-import { buildCCPOrg1, buildWallet } from './../../test-application/javascript/AppUtil.js';
+import { buildCCPOrg1, buildWallet } from './../../../test-application/javascript/AppUtil.js';
 //@ts-ignore
-import { buildCAClient, registerAndEnrollUser, enrollAdmin } from './../../test-application/javascript/CAUtil.js';
+import { buildCAClient, registerAndEnrollUser, enrollAdmin } from './../../../test-application/javascript/CAUtil.js';
 const __dirname = path.resolve();
 const mspOrg1 = 'Org1MSP';
 const walletPath = path.join(__dirname, 'wallet');
