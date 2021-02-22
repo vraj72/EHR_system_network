@@ -8,7 +8,7 @@ import { buildCAClient, registerAndEnrollUser, enrollAdmin } from './../../test-
 const __dirname = path.resolve();
 const mspOrg3 = 'Org3MSP';
 const walletPath = path.join(__dirname, 'wallet');
-const org3UserId = 'appUser';
+const org3UserId = 'appUser3';
 const ccp = buildCCPOrg3();
 const caClient = buildCAClient(FabricCAServices, ccp, 'ca.org3.example.com');
 const wallet = await buildWallet(Wallets, walletPath);

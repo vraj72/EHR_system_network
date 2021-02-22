@@ -9,3 +9,13 @@ organizations/peerOrganizations/*
 system-genesis-block/*
 *.tar.gz
 log.txt
+/asset-transfer-custom/application-custom/org1_ASS/node_modules/*
+/asset-transfer-custom/application-custom/org2_HospA/node_modules/*
+/asset-transfer-custom/application-custom/org3_HospB/node_modules/*
+/asset-transfer-custom/application-custom/org4_LabA/node_modules/*
+/asset-transfer-custom/application-custom/org5_LabB/node_modules/*
+/asset-transfer-custom/application-custom/org1_ASS/wallet/*
+/asset-transfer-custom/application-custom/org2_HospA/wallet/*
+/asset-transfer-custom/application-custom/org3_HospB/wallet/*
+/asset-transfer-custom/application-custom/org4_LabA/wallet/*
+/asset-transfer-custom/application-custom/org5_LabB/wallet/*
