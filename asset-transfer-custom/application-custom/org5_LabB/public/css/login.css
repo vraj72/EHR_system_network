@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500&display=swap");
+:root {
+  --main_color: #663EFD;
+}
+
+body {
+  text-align: center;
+}
+
+.cont {
+  background-color: white;
+  height: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px 30px;
+  margin: 20px auto 0;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 6px 0 rgba(103, 62, 253, 0.25);
+          box-shadow: 0 0 6px 0 rgba(103, 62, 253, 0.25);
+  text-align: center;
+  display: inline-block;
+}
+
+h2 {
+  color: var(--main_color);
+}
+
+#tc, #tc1 {
+  font-size: 12px;
+  font-style: italic;
+  color: #fd0000;
+}
+
+#tc2 {
+  font-size: 12px;
+  font-style: italic;
+  display: none;
+}
+
+#tc3 {
+  font-size: 12px;
+  font-style: italic;
+  color: #008000;
+}
+
+#tc2:after {
+  content: ' .';
+  -webkit-animation: dots 1s steps(5, end) infinite;
+          animation: dots 1s steps(5, end) infinite;
+}
+
+@-webkit-keyframes dots {
+  0%, 20% {
+    color: black;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: black;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    color: black;
+    text-shadow: 0.25em 0 0 black, 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%, 100% {
+    color: black;
+    text-shadow: .25em 0 0 black, .5em 0 0 black;
+  }
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: black;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: black;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    color: black;
+    text-shadow: 0.25em 0 0 black, 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%, 100% {
+    color: black;
+    text-shadow: .25em 0 0 black, .5em 0 0 black;
+  }
+}
+
+input {
+  border: 1px solid var(--main_color);
+  border-radius: 3px;
+  height: 30px;
+  width: auto;
+  padding: 10px 30px;
+  padding-right: 10px;
+  margin: 10px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 1px var(--main_color);
+          box-shadow: 0 0 0 1px var(--main_color);
+}
+
+td i {
+  position: absolute;
+  padding: 10px 0;
+  color: var(--main_color);
+  min-width: 50px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 5px;
+  background-color: var(--main_color);
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: var(--main_color);
+  border: solid;
+  border-width: 0.2px;
+  border-color: var(--main_color);
+}
+
+#not_registered {
+  font-size: 13px;
+  color: #777779;
+}
+
+#not_registered a {
+  text-decoration: none;
+  color: var(--main_color);
+}
+
+#not_registered a:hover {
+  text-decoration: underline;
+}
+
+#enter_otp {
+  margin-top: 10px;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+footer {
+  margin-top: 100px;
+}
+
+@media (min-height: 750px) {
+  footer {
+    position: fixed;
+  }
+}
+/*# sourceMappingURL=login.css.map */
