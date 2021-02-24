@@ -20,7 +20,13 @@ const port = 7090;
 app.get('/',function(req, res){
     res.render('login.hbs',{layout: false});
 });
-app.use(express.static(path.join(__dirname,'/public/css')));
+app.get('/insert',function(req, res){
+    res.render('insert.hbs',{layout: false});
+});
+
+app.use(express.static(path.join(__dirname,'/public')));
+// app.use(express.static(path.join(__dirname,'/public/javascript')));
+
 app.listen(port, () => {
     console.info(`Server running on port ${port}`);
     console.log(__dirname);

@@ -20,7 +20,12 @@ const port = 8040;
 app.get('/',function(req, res){
     res.render('login.hbs',{layout: false});
 });
-app.use(express.static(path.join(__dirname,'/public/css')));
+app.get('/insert',function(req, res){
+    res.render('insert.hbs',{layout: false});
+});
+
+app.use(express.static(path.join(__dirname,'/public')));
+
 app.listen(port, () => {
     console.info(`Server running on port ${port}`);
     console.log(__dirname);

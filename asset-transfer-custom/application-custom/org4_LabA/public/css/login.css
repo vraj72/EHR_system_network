@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500&display=swap");
 :root {
-  --main_color: #663EFD;
+  --main_color: #1ec51e;
 }
 
 body {
@@ -66,7 +66,8 @@ h2 {
   }
   80%, 100% {
     color: black;
-    text-shadow: .25em 0 0 black, .5em 0 0 black;
+    text-shadow: .25em 0 0 black,
+ .5em 0 0 black;
   }
 }
 
@@ -85,7 +86,8 @@ h2 {
   }
   80%, 100% {
     color: black;
-    text-shadow: .25em 0 0 black, .5em 0 0 black;
+    text-shadow: .25em 0 0 black,
+ .5em 0 0 black;
   }
 }
 

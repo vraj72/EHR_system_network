@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/insert.css">
+    <script type="text/javascript" src="/javascript/jquery-3.4.1.min.js"></script>
+    <title>Insert</title>
+</head>
+<body>
+    <div class="cont">
+       <p class="heading"><strong>LAB B</strong></p>
+    </div>
+   
+    <div class="filter-container">
+        <div class="main-bar">
+            <label for="search_bar"></label>
+            <input type="text" name="search_bar" id="search_bar" placeholder="Search Patient ID" onkeyup="findJsonString()">
+            <button id="search_button" class="search_button" onclick="findJsonString()">Search &nbsp;&nbsp;<i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+        {{!-- <div class="filters">
+            <label class="heading">Filters</label>
+            <div class="filter-type  extra-padding" id="department">
+                <p class= "sub-heading">Department</p>
+            </div>
+            <div class="filter-type" id="closing_date">
+                <p></p>
+                <div style="display: inline-block;">
+                    <label class= "sub-heading" for="starting_date">Starting Date</label><br>
+                    <input type="date"  id="starting_date">
+                </div>
+                <div style="display: inline-block;">
+                    <label class= "sub-heading" for="ending_date">Ending Date</label><br>
+                    <input type="date"  id="ending_date">
+                </div>
+            </div>
+            <div class="filter-type">
+                <p class= "sub-heading" id="fee">Tender Fee</p>
+                <select  id="fees">
+                    <option value="select">-- Select --</option>
+                    <option value="0">Below Rs 1,000</option>
+                    <option value="1">Between Rs 1,000 and 5,000</option>
+                    <option value="2">Between Rs 5,000 and 10,000</option>
+                    <option value="3">Between Rs 10,000 and 15,000</option>
+                    <option value="4">Between Rs 15,000 and 20,000</option>
+                </select>
+            </div>
+            <button id="filter_button" class="search_button" onclick="filterData()">Filter Search</button>
+        </div> --}}
+    </div>
+    <div class="container" id='cont'></div>
+    <br><br> 
+    
+</body>
+<script src="https://kit.fontawesome.com/523ff21025.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/javascript/insert.js"></script>
+
+</html>
