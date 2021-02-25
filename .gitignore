@@ -1,3 +1,5 @@
+node_modules/
+wallet/
 /channel-artifacts/*.tx
 /channel-artifacts/*.block
 /ledgers
