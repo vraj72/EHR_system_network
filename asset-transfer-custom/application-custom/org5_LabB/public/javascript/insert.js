@@ -4,6 +4,31 @@ var res
 // var vd_id = get_cookie('vd_id')
 // var vcd_id = get_cookie('vcd_id')
 
+function get_patient(){
+    var patient_id = document.getElementById('search_bar').value;
+    if(patient_id.length >0){
+        var xhr = new XMLHttpRequest()
+        data = JSON.stringify({ patient_id : patient_id })
+
+        xhr.onload = function () {
+            if (this.status === 200) {
+                response = JSON.parse(this.responseText)
+                loadResults(response)
+            } else if (this.status == 404) {
+                alert('No patient to show');
+            } else {
+                alert('Check Network!');
+            }
+        }
+
+        xhr.open('POST', '/getPatientList');
+        xhr.send(data);
+
+    }
+
+}
+
+
 
 function loadResults(response) {
     $('#cont').empty()
