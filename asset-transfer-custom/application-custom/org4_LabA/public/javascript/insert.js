@@ -63,9 +63,9 @@ function loadResults(response) {
             response[i].phone +
             `</p>
             </div>
-            <br><button name="Blood Report" value='Blood Report' class="apply" onclick="apply(` +
+            <br><button name="Blood Report" value='Blood Report' class="apply" onclick="apply_blood(` +
             response[i].patient_id +
-            `)">Blood Report</button> <button name="Sugar Report" value='Sugar REport' class="apply" onclick="apply(` +
+            `)">Blood Report</button> <button name="Sugar Report" value='Sugar REport' class="apply" onclick="apply_sugar(` +
             response[i].patient_id +
             `)">Sugar Report</button>
                     </div>`
@@ -90,6 +90,18 @@ function apply(et_id) {
         window.location.href = '/l'
     })
     
+}
+
+function apply_sugar(id){
+    setTimeout(function () {
+        location = '/insert_sugar?id='+id;
+    }, 0)
+}
+
+function apply_blood(id){
+    setTimeout(function () {
+        location = '/insert_blood?id='+id;
+    }, 0)
 }
 
 response=`[

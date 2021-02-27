@@ -23,6 +23,13 @@ app.get('/',function(req, res){
 app.get('/insert',function(req, res){
     res.render('insert.hbs',{layout: false});
 });
+app.get('/insert_sugar',function(req, res){
+    res.render('sugar_report.hbs',{layout: false});
+});
+
+app.get('/insert_blood',function(req, res){
+    res.render('blood_report.hbs',{layout: false});
+});
 
 app.use(express.static(path.join(__dirname,'/public')));
 // app.use(express.static(path.join(__dirname,'/public/javascript')));
