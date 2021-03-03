@@ -46,10 +46,10 @@ function nextb(){
           var resp=this.responseText;
           console.log(resp)
           response = JSON.parse(this.responseText)
-          loadResults(response)
-          
+          alert(response.message)
+          window.history.back();
       } else if (this.status == 404) {
-          alert('No patient to show');
+          alert('Error ');
       } else {
           alert('Check Network!');
       }
@@ -84,7 +84,8 @@ function next(){
           var resp=this.responseText;
           console.log(resp)
           response = JSON.parse(this.responseText)
-          loadResults(response)
+          alert(response.message)
+          window.history.back();
           
       } else if (this.status == 404) {
           alert('No patient to show');

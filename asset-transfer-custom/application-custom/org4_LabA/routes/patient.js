@@ -49,6 +49,10 @@ async function patientExists(id) {
     let patientExists = await contract.evaluateTransaction('PatientExists', id);
     return patientExists.toString();
 }
+async function createReport(id, reportType, report) {
+    let anc = await contract.submitTransaction('CreateReport', id, reportType, JSON.stringify(report));
+    return anc.toString();
+}
 
 router.post('/getPatientDetails', (request, response) => {
     let id = request.body.id;
@@ -153,7 +157,7 @@ router.post('/reports/create_blood', (request, response) => {
     };  
     var reports = JSON.stringify(report);
     console.log(typeof reports, reports)
-    debug(`Patient ID :${id}, Report Type : ${reportType}, Report Object : ${reports}`);
+    debug(`Patient ID :${id}, Report Type : ${reportType}, Report Object : ${report}`);
     // console.log(id, reportType, reports);
     patientExists(id)
         .then((patientExist) => {
@@ -164,11 +168,13 @@ router.post('/reports/create_blood', (request, response) => {
         }
         else {
             console.log("found patient")
-            createReport(id, reportType, reports)
+            createReport(id, reportType, report )
                 .then((result) => {
                 response.send(StatusCodeResolver('EHR - 103'));
             })
                 .catch((error) => {
+                    console.log(`Error message : ${error.message}`)
+                    console.log(`Error : ${error.name}`)
                 debug(`Some error in fetching Reports of patient with Patient ID : ${id}`);
                 debug(`Error : ${error.name}`);
                 debug(`Error message : ${error.message}`);
@@ -178,6 +184,8 @@ router.post('/reports/create_blood', (request, response) => {
         }
     })
         .catch((error) => {
+            console.log(`Error message : ${error.message}`)
+            console.log(`Error : ${error.name}`)
         debug(`Encountered Unhandled Error in /patient/ route`);
         debug(`Error : ${error.name}`);
         debug(`Error message : ${error.message}`);
