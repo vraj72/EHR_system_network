@@ -11,14 +11,11 @@ const contract = network.getContract(chaincodeName);
 async function getPatient(id:string){
     const patient:Buffer = await contract.submitTransaction('ReadPatientRecord',id)
     return patient
-}
-async function createPatient(id:string,public_key:string,PersonalDetails:string){
-    await contract.submitTransaction('CreatePatient',id,public_key,PersonalDetails)
-    let patientExists:Buffer = await contract.evaluateTransaction('PatientExists',id)
-    return patientExists.toString()
-}
-router.post('/',(request:Request,response:Response)=>{
+}   
+
+router.post('/getPatientDetails',(request:Request,response:Response)=>{
     let id:string = request.body.id
+    console.log("id: get patientDeatisl"+id);
     getPatient(id).then((result)=>{
         response.send(JSON.parse(result.toString()))
     })
@@ -33,27 +30,34 @@ router.post('/',(request:Request,response:Response)=>{
     
 })
 
-router.post('/create',(request:Request,response:Response)=>{
-    let id:string = request.body.ID
-    let public_key:string = request.body.PublicKey
-    let PersonalDetails:string = request.body.PersonalDetails
-    createPatient(id,public_key,JSON.stringify(PersonalDetails))
-    .then((result:string)=>{
-        if (result === 'true'){
-            response.send('Patient registered successfully')
-        }
-    })
-    .catch((error:Error)=>{
-        console.log(error.message)
-    })
-    //response.send('Reached on create patient')
-})
+// async function createPatient(id:string,public_key:string,PersonalDetails:string){
+//     await contract.submitTransaction('CreatePatient',id,public_key,PersonalDetails)
+//     let patientExists:Buffer = await contract.evaluateTransaction('PatientExists',id)
+//     return patientExists.toString()
+// }
+
+
+// router.post('/create',(request:Request,response:Response)=>{
+//     let id:string = request.body.ID
+//     let public_key:string = request.body.PublicKey
+//     let PersonalDetails:string = request.body.PersonalDetails
+//     createPatient(id,public_key,JSON.stringify(PersonalDetails))
+//     .then((result:string)=>{
+//         if (result === 'true'){
+//             response.send('Patient registered successfully')
+//         }
+//     })
+//     .catch((error:Error)=>{
+//         console.log(error.message)
+//     })
+//     //response.send('Reached on create patient')
+// })
 
 
 
-router.post('/update',(request:Request,response:Response)=>{
-    response.send('Reached on create patient')
-})
+// router.post('/update',(request:Request,response:Response)=>{
+//     response.send('Reached on create patient')
+// })
 
 
 

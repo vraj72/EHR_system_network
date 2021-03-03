@@ -2,6 +2,7 @@ import express from 'express';
 import exphbs  from 'express-handlebars';
 import path from 'path';
 import cors from 'cors';
+import patient from './routes/patient.js';
 const __dirname = path.resolve(path.dirname(''));
 const app = express();
 app.use(express.json());
@@ -33,6 +34,8 @@ app.get('/insert_blood',function(req, res){
 
 app.use(express.static(path.join(__dirname,'/public')));
 // app.use(express.static(path.join(__dirname,'/public/javascript')));
+
+app.use(patient);
 
 app.listen(port, () => {
     console.info(`Server running on port ${port}`);
