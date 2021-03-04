@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reports.css">
+    <script type="text/javascript" src="/javascript/jquery-3.4.1.min.js"></script>
+    <title>Insert</title>
+</head>
+<body>
+    
+   
+    <div class="cont">
+      <br>
+      <h2>Details</h2>
+      <h3 style="text-align: left;">Patient Details</h3>
+      {{!-- {{#if p_details}} --}}
+      {{!-- {{#with p_details}} --}}
+      <table>
+        <tr>
+            <td><label><strong>Patient Id: </strong></label></td>
+            <td><label id="id">1234567</label></td>
+            <td><label><strong>Pateint Name: </strong></label></td>
+            <td><label id="name">Viraj Tandel</label></td>
+            <td><label><strong>Email: </strong></label></td>
+            <td><label id="email"></label></td>
+        </tr>
+        <tr>
+            <td><label><strong>Date of Birth: </strong></label></td>
+            <td><label id="dob">11/10/1201</label></td>
+            <td><label><strong>phone: </strong></label></td>
+            <td><label id="phone">7896541230</label></td>
+            <td><label><strong>Gender: </strong></label></td>
+            <td><label id="gender">male</label></td>
+        </tr>
+      </table>
+
+      
+      
+
+      {{!-- {{/with}} --}}
+      {{!-- {{else}} --}}
+        {{!-- <p>Could not load Patient Details</p> --}}
+      {{!-- {{/if}} --}}
+      <br><hr><br>
+      <h3 style="text-align: left;">New Sugar Report</h3>
+      
+      <table>
+        <tr>
+          <td><label><strong>Type: </strong></label></td>
+          <td><select id="type" class="select_a">
+          <option value="select" selected> --select--</option>
+                <option value="HBA1c">HBA1c</option>
+        </select></td>
+          <td><label><strong>Value: </strong></label></td>
+          <td><label><input id="s_value" type="text"  placeholder="per 100mg value" maxlength="50"></label></td>
+          <td><label><strong>Result: </strong></label></td>
+          <td><select id="result" class="select_a">
+          <option value="select" selected> --select--</option>
+                <option value="High">High</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Low">Low</option>
+        </select></td>
+        </tr>
+        <tr>
+          <td><label><strong>Comments: </strong></label></td>
+          <td><label><input id="s_comment" type="text"  placeholder="Enter Comment" maxlength="50"></label></td>
+        </tr>
+      </table>
+    
+      
+      <br>
+      
+      <div  class="submit_button">
+          <button type="button" onclick="location='/insert'"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
+          <button type="button" id ="freeze" onclick="next()"></i>Insert&nbsp;<i class="fa fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <br><br> 
+    
+</body>
+<script src="https://kit.fontawesome.com/523ff21025.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/javascript/reports.js"></script>
+
+</html>

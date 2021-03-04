@@ -1,19 +1,27 @@
-var data = ''
-var response
+var response, responseP
 var res
-// var vd_id = get_cookie('vd_id')
-// var vcd_id = get_cookie('vcd_id')
+
 
 function get_patient(){
     var patient_id = document.getElementById('search_bar').value;
+    console.log(patient_id);
     if(patient_id.length >0){
         var xhr = new XMLHttpRequest()
-        data = JSON.stringify({ patient_id : patient_id })
+        xhr.open('POST', '/getPatientDetails');
+        xhr.setRequestHeader("Content-type", "application/json"); 
+        var data = JSON.stringify({"id":patient_id});
 
         xhr.onload = function () {
             if (this.status === 200) {
+                var resp=this.responseText;
+                console.log("gto"+this.responseText+resp.slice(resp.length-13))
+                if(resp.slice(resp.length-14)==="does not exist"){
+                    alert('No patient to show');
+                }
+                else{
                 response = JSON.parse(this.responseText)
                 loadResults(response)
+                }
             } else if (this.status == 404) {
                 alert('No patient to show');
             } else {
@@ -21,110 +29,68 @@ function get_patient(){
             }
         }
 
-        xhr.open('POST', '/getPatientList');
+        
         xhr.send(data);
 
     }
 
 }
 
-
-
 function loadResults(response) {
     $('#cont').empty()
+    responseP=response.PersonalDetails;
     var cont_div = document.getElementById('cont')
-    for (var i = 0; i < response.length; i++) {
-        var div =
-            `<div class="cont" id="` +
+    var i=0;
+    var div =`<div class="cont" id="` +
             i +
             `">
                         <p class="heading">` +
-            response[i].patient_name +
+            responseP.Username +
             `</p><br>
                         <div class="Tdetails">
                             <p class="RnoLabel"><strong>Patient ID :</strong></p>
                             <p >` +
-            response[i].patient_id +
+            response.ID +
             `</p>
                             <p class="OdateLabel"><strong>Patient email:</strong></p>
                             <p id="Odate">` +
-            response[i].email +
+            responseP.Email +
             `</p>
                             <p class="BdateLabel"><strong>DOB:</strong></p>
                             <p id="Bdate">` +
-            response[i].dob+
+            responseP.DOB+
             `</p>
                             <p class="BdateLabel"><strong>Gender:</strong></p>
                             <p id="dept">` +
-                response[i].gender +
+                responseP.Gender +
                 `</p>
                         </div><br>
                         <div class="Tdetails">  
                         <p class="BdateLabel"><strong>Phone Number:</strong></p>
                         <p class="para">` +
-            response[i].phone +
+            responseP.Mobile +
             `</p>
             </div>
-                        <br><button name="Blood Report" value='Blood Report' class="apply" onclick="apply(` +
-            response[i].patient_id +
-            `)">Blood Report</button> <button name="Sugar Report" value='Sugar REport' class="apply" onclick="apply(` +
-            response[i].patient_id +
-            `)">Sugar Report</button>
-                    </div>`
+            <br><button name="Blood Report" value='Blood Report' class="apply" onclick="apply_blood('` +response.ID +`')">Blood Report</button>`+
+            ` <button name="Sugar Report" value='Sugar REport' class="apply" onclick="apply_sugar('` +response.ID + `')">Sugar Report</button></div>`;
 
-        cont_div.insertAdjacentHTML('beforeend', div)
-    }
-}
-
-var xhr = new XMLHttpRequest()
-
-xhr.onload = function () {
-    if (this.status === 200) {
-        response = JSON.parse(this.responseText)
-        loadResults(response)
-    } else if (this.status == 404) {
-        // alert('No tender to show')
-    } else {
-        // alert('Check Network!')
-    }
-}
-
-xhr.open('POST', '/gettenderlist')
-xhr.send(data)
-
-function apply(et_id) {
-    
-    Swal.fire({
-        title: 'title',
-        text: 'Please entery',
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonColor: '#663EFD',
-        cancelButtonColor: '#a6a6a6',
-        confirmButtonText: 'Login',
-    }).then((result) => {
-        console.log(result)
-        window.location.href = '/l'
-    })
+        cont_div.insertAdjacentHTML('beforeend', div);
     
 }
-// function findJsonString() {
-//     var filterKey = $('#search_bar').val().toLowerCase()
-    
-// }
 
-response=`[
-    {
-        "patient_id": "123456789",
-        "dob": "20/12/12",
-        "patient_name": "Viraj Tandel",
-        "gender": "male",
-        "phone": "7894561230",
-        "email": "dhdbdj@gmail.com"
-    }
-]`;
-response = JSON.parse(response);
-loadResults(response);
 
+
+function apply_sugar(id){
+    console.log("sugar "+id)
+    setTimeout(function () {
+        location = '/insert_sugar?id='+id+'&name='+responseP.Username+'&gender='+responseP.Gender+'&mobile='+responseP.Mobile+'&email='+responseP.Email+'&dob='+responseP.DOB;
+    }, 0)
+}
+
+function apply_blood(id){
+    setTimeout(function () {
+        location = '/insert_blood?id='+id+'&name='+responseP.Username+'&gender='+responseP.Gender+'&mobile='+responseP.Mobile+'&email='+responseP.Email+'&dob='+responseP.DOB;
+    }, 0)
+}
 
 
