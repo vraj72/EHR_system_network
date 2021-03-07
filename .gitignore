@@ -21,3 +21,9 @@ log.txt
 /asset-transfer-custom/application-custom/org3_HospB/wallet/*
 /asset-transfer-custom/application-custom/org4_LabA/wallet/*
 /asset-transfer-custom/application-custom/org5_LabB/wallet/*
+/organizations/fabric-ca/ordererOrg/msp/keystore/*
+/organizations/fabric-ca/org1/msp/keystore/*
+organizations/fabric-ca/org2/msp/keystore/*
+organizations/fabric-ca/org3/msp/keystore/*
+organizations/fabric-ca/org4/msp/keystore/*
+organizations/fabric-ca/org5/msp/keystore/*

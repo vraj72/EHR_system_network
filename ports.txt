@@ -1,6 +1,6 @@
 Org1 With ASS server{7051-7060}
     peer0 {7051}
-    Couch Db0 {5984}
+    Couch Db0 {5984} 7053
     CA server {7054}
     Chaincode addess {7052}
     peer.js {@winston add here}   (7060)
