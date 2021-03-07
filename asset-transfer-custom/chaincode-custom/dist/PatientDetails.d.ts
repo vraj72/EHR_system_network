@@ -13,7 +13,7 @@ export declare class PatientDetailsContract extends Contract {
      * @returns None
      */
     CreateReport(ctx: Context, id: string, reportType: string, Report: string): Promise<string>;
-    GetReports(ctx: Context, reportType: string, id: string): Promise<import("./assets").BloodReports[] | 0 | "Error: Report Type not defined">;
+    GetReports(ctx: Context, reportType: string, id: string): Promise<0 | import("./assets").BloodReports[] | "Error: Report Type not defined">;
     /**
      *
      * @name GetPublicKey

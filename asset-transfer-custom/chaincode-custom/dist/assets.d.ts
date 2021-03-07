@@ -9,10 +9,10 @@ export declare class Patient {
 export declare class PatientPersonalDetails {
     Username: string;
     Name: string;
-    Email: string;
     DOB: string;
     Gender: gender;
     Mobile: string;
+    Address: string;
 }
 export declare class PatientReports {
     BloodReports: BloodReports[];

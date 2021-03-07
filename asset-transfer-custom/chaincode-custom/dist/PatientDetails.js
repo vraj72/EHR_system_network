@@ -15,89 +15,39 @@ class PatientDetailsContract extends fabric_contract_api_1.Contract {
     async InitLedger(ctx) {
         const patients = [
             {
-                ID: 'patient1',
-                PublicKey: 'dede',
-                PersonalDetails: {
-                    Username: 'winu',
-                    Name: 'Winston Sequeira',
-                    Email: 'w@ffjf.com',
-                    DOB: 'yolo',
-                    Gender: 'Male',
-                    Mobile: '45879622878',
-                },
-                Reports: {
-                    BloodReports: [
-                        {
-                            ReportFormat: 'Image',
-                            Content: 'yolo',
-                            IssuedBy: 'ME',
-                            GeneratedTime: 'justnow',
-                        }
-                    ],
-                    SugarReports: [],
-                    ECGReports: []
+                "ID": "patient1",
+                "PublicKey": "",
+                "PersonalDetails": {
+                    "Name": "Kyle Mendez",
+                    "Username": "Kyle@gmail.com",
+                    "Gender": "Male",
+                    "Mobile": "1236547895",
+                    "Address": "India",
+                    "DOB": "18-03-1984"
                 }
             },
             {
-                ID: 'patient2',
-                PublicKey: 'dede',
-                PersonalDetails: {
-                    Username: 'winu',
-                    Name: 'Winston Sequeira',
-                    Email: 'w@ffjf.com',
-                    DOB: 'yolo',
-                    Gender: 'Male',
-                    Mobile: '45879622878',
-                },
-                Reports: {
-                    BloodReports: [
-                        {
-                            ReportFormat: 'Image',
-                            Content: 'yolo',
-                            IssuedBy: 'ME',
-                            GeneratedTime: 'justnow',
-                        }
-                    ],
-                    SugarReports: [
-                        {
-                            ReportFormat: 'Image',
-                            Content: 'SugarReport',
-                            IssuedBy: 'ME',
-                            GeneratedTime: 'justnow',
-                        }
-                    ],
-                    ECGReports: [
-                        {
-                            ReportFormat: 'Image',
-                            Content: 'ECGREPORT',
-                            IssuedBy: 'ME',
-                            GeneratedTime: 'justnow',
-                        }
-                    ]
+                "ID": "patient2",
+                "PublicKey": "",
+                "PersonalDetails": {
+                    "Name": "Suzanne",
+                    "Username": "suzzan@yahoo.com",
+                    "Gender": "Female",
+                    "Mobile": "7896541230",
+                    "Address": "India",
+                    "DOB": "17-03-1980"
                 }
             },
             {
-                ID: 'patient3',
-                PublicKey: 'dede',
-                PersonalDetails: {
-                    Username: 'winu',
-                    Name: 'Winston Sequeira',
-                    Email: 'w@ffjf.com',
-                    DOB: 'yolo',
-                    Gender: 'Male',
-                    Mobile: '45879622878',
-                },
-                Reports: {
-                    BloodReports: [
-                        {
-                            ReportFormat: 'Image',
-                            Content: 'yolo',
-                            IssuedBy: 'ME',
-                            GeneratedTime: 'justnow',
-                        }
-                    ],
-                    SugarReports: [],
-                    ECGReports: []
+                "ID": "patient3",
+                "PublicKey": "",
+                "PersonalDetails": {
+                    "Name": "Axar",
+                    "Username": "axe@gmail.com",
+                    "Gender": "Male",
+                    "Mobile": "7896521430",
+                    "Address": "India",
+                    "DOB": "10-04-258"
                 }
             }
         ];

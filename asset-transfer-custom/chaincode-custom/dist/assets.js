@@ -45,9 +45,6 @@ __decorate([
 ], PatientPersonalDetails.prototype, "Name", void 0);
 __decorate([
     fabric_contract_api_1.Property(),
-    __metadata("design:type", String)
-], PatientPersonalDetails.prototype, "Email", void 0);
-__decorate([
     fabric_contract_api_1.Property(),
     __metadata("design:type", String)
 ], PatientPersonalDetails.prototype, "DOB", void 0);
@@ -59,6 +56,10 @@ __decorate([
     fabric_contract_api_1.Property(),
     __metadata("design:type", String)
 ], PatientPersonalDetails.prototype, "Mobile", void 0);
+__decorate([
+    fabric_contract_api_1.Property(),
+    __metadata("design:type", String)
+], PatientPersonalDetails.prototype, "Address", void 0);
 PatientPersonalDetails = __decorate([
     fabric_contract_api_1.Object()
 ], PatientPersonalDetails);
