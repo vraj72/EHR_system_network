@@ -31,15 +31,17 @@ export class PatientPersonalDetails{
 @Object()
 export class PatientReports{
     @Property()
-    public BloodReports:BloodReports[]
+    public BloodReports?:BloodReports[]
     @Property()
-    public SugarReports:SugarReports[]
+    public SugarReports?:SugarReports[]
     @Property()
-    public ECGReports:ECGReports[]
+    public ECGReports?:ECGReports[]
 
 }
 
 export class BloodReports{
+    @Property()
+    public ReportID:string
     @Property()
     public ReportFormat:reportFormat
     @Property()
@@ -51,6 +53,8 @@ export class BloodReports{
 }
 export class ECGReports{
     @Property()
+    public ReportID:string
+    @Property()
     public ReportFormat:reportFormat
     @Property()
     public Content:string
@@ -61,6 +65,8 @@ export class ECGReports{
 }
 
 export class SugarReports{
+    @Property()
+    public ReportID:string
     @Property()
     public ReportFormat:reportFormat
     @Property()

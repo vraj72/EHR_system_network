@@ -87,6 +87,10 @@ class BloodReports {
 __decorate([
     fabric_contract_api_1.Property(),
     __metadata("design:type", String)
+], BloodReports.prototype, "ReportID", void 0);
+__decorate([
+    fabric_contract_api_1.Property(),
+    __metadata("design:type", String)
 ], BloodReports.prototype, "ReportFormat", void 0);
 __decorate([
     fabric_contract_api_1.Property(),
@@ -106,6 +110,10 @@ class ECGReports {
 __decorate([
     fabric_contract_api_1.Property(),
     __metadata("design:type", String)
+], ECGReports.prototype, "ReportID", void 0);
+__decorate([
+    fabric_contract_api_1.Property(),
+    __metadata("design:type", String)
 ], ECGReports.prototype, "ReportFormat", void 0);
 __decorate([
     fabric_contract_api_1.Property(),
@@ -122,6 +130,10 @@ __decorate([
 exports.ECGReports = ECGReports;
 class SugarReports {
 }
+__decorate([
+    fabric_contract_api_1.Property(),
+    __metadata("design:type", String)
+], SugarReports.prototype, "ReportID", void 0);
 __decorate([
     fabric_contract_api_1.Property(),
     __metadata("design:type", String)

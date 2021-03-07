@@ -15,23 +15,26 @@ export declare class PatientPersonalDetails {
     Address: string;
 }
 export declare class PatientReports {
-    BloodReports: BloodReports[];
-    SugarReports: SugarReports[];
-    ECGReports: ECGReports[];
+    BloodReports?: BloodReports[];
+    SugarReports?: SugarReports[];
+    ECGReports?: ECGReports[];
 }
 export declare class BloodReports {
+    ReportID: string;
     ReportFormat: reportFormat;
     Content: string;
     IssuedBy: string;
     GeneratedTime: string;
 }
 export declare class ECGReports {
+    ReportID: string;
     ReportFormat: reportFormat;
     Content: string;
     IssuedBy: string;
     GeneratedTime: string;
 }
 export declare class SugarReports {
+    ReportID: string;
     ReportFormat: reportFormat;
     Content: string;
     IssuedBy: string;
