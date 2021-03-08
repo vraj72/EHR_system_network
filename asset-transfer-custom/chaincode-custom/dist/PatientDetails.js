@@ -20,23 +20,24 @@ class PatientDetailsContract extends fabric_contract_api_1.Contract {
                 PersonalDetails: {
                     Username: 'winu',
                     Name: 'Winston Sequeira',
-                    Email: 'w@ffjf.com',
                     DOB: 'yolo',
                     Gender: 'Male',
                     Mobile: '45879622878',
+                    Address: 'India',
                 },
                 Reports: {
                     BloodReports: [
                         {
+                            ReportID: 'Report1',
                             ReportFormat: 'Image',
                             Content: 'yolo',
                             IssuedBy: 'ME',
                             GeneratedTime: 'justnow',
-                        }
+                        },
                     ],
                     SugarReports: [],
-                    ECGReports: []
-                }
+                    ECGReports: [],
+                },
             },
             {
                 ID: 'patient2',
@@ -44,37 +45,40 @@ class PatientDetailsContract extends fabric_contract_api_1.Contract {
                 PersonalDetails: {
                     Username: 'winu',
                     Name: 'Winston Sequeira',
-                    Email: 'w@ffjf.com',
                     DOB: 'yolo',
                     Gender: 'Male',
                     Mobile: '45879622878',
+                    Address: 'India',
                 },
                 Reports: {
                     BloodReports: [
                         {
+                            ReportID: 'Report4',
                             ReportFormat: 'Image',
                             Content: 'yolo',
                             IssuedBy: 'ME',
                             GeneratedTime: 'justnow',
-                        }
+                        },
                     ],
                     SugarReports: [
                         {
+                            ReportID: 'Report5',
                             ReportFormat: 'Image',
                             Content: 'SugarReport',
                             IssuedBy: 'ME',
                             GeneratedTime: 'justnow',
-                        }
+                        },
                     ],
                     ECGReports: [
                         {
+                            ReportID: 'Report4',
                             ReportFormat: 'Image',
                             Content: 'ECGREPORT',
                             IssuedBy: 'ME',
                             GeneratedTime: 'justnow',
-                        }
-                    ]
-                }
+                        },
+                    ],
+                },
             },
             {
                 ID: 'patient3',
@@ -82,24 +86,25 @@ class PatientDetailsContract extends fabric_contract_api_1.Contract {
                 PersonalDetails: {
                     Username: 'winu',
                     Name: 'Winston Sequeira',
-                    Email: 'w@ffjf.com',
                     DOB: 'yolo',
                     Gender: 'Male',
                     Mobile: '45879622878',
+                    Address: 'India',
                 },
                 Reports: {
                     BloodReports: [
                         {
+                            ReportID: 'Report6',
                             ReportFormat: 'Image',
                             Content: 'yolo',
                             IssuedBy: 'ME',
                             GeneratedTime: 'justnow',
-                        }
+                        },
                     ],
                     SugarReports: [],
-                    ECGReports: []
-                }
-            }
+                    ECGReports: [],
+                },
+            },
         ];
         for (const patient of patients) {
             await ctx.stub.putState(patient.ID, Buffer.from(JSON.stringify(patient)));
@@ -112,11 +117,6 @@ class PatientDetailsContract extends fabric_contract_api_1.Contract {
             ID: id,
             PublicKey: publicKey,
             PersonalDetails: pd,
-            Reports: {
-                BloodReports: [],
-                SugarReports: [],
-                ECGReports: []
-            }
         };
         await ctx.stub.putState(patient.ID, Buffer.from(JSON.stringify(patient)));
     }
@@ -132,70 +132,114 @@ class PatientDetailsContract extends fabric_contract_api_1.Contract {
         return patient && patient.length > 0;
     }
     async UpdatePatientPersonalDetails(ctx, id, personalDetails) {
-        const existPatient = await this.PatientExists(ctx, id);
-        if (!existPatient) {
-            throw new Error(`Patient with ID : ${id} does not exist`);
-        }
         const patientRecord = await this.ReadPatientRecord(ctx, id);
         const patient = JSON.parse(patientRecord.toString());
         let pd = JSON.parse(personalDetails);
         patient.PersonalDetails = pd;
         await ctx.stub.putState(id, Buffer.from(JSON.stringify(patient)));
     }
-    /**
-     *
-     * @param id - Represents Patient ID
-     * @param reportType - The type of report eg: BloodReports, SugarReports, ECGReports
-     * @param Report - The whole report itself which is in string format
-     * @returns None
-     */
     async CreateReport(ctx, id, reportType, Report) {
+        var flag = '';
         const patientRecord = await this.ReadPatientRecord(ctx, id);
         const patient = JSON.parse(patientRecord.toString());
         switch (reportType) {
-            case 'BloodReports':
-                const bloodReport = patient.Reports.BloodReports;
-                bloodReport.push(JSON.parse(Report));
-                patient.Reports.BloodReports = bloodReport;
+            case 'BloodReports': {
+                if (typeof patient.Reports === 'undefined') {
+                    flag = 'Reports not defined';
+                    const Reports = {};
+                    const bloodReport = [];
+                    bloodReport.push(JSON.parse(Report));
+                    Reports.BloodReports = bloodReport;
+                    patient.Reports = Reports;
+                }
+                else {
+                    if (typeof patient.Reports.BloodReports === 'undefined') {
+                        flag = 'Blood reprots not defined';
+                        const bloodReport = [];
+                        bloodReport.push(JSON.parse(Report));
+                        patient.Reports.BloodReports = bloodReport;
+                    }
+                    else {
+                        flag = 'Blood reprots  defined';
+                        const bloodReport = patient.Reports.BloodReports;
+                        bloodReport.push(JSON.parse(Report));
+                        patient.Reports.BloodReports = bloodReport;
+                    }
+                }
                 break;
-            case 'SugarReports':
-                const sugarReport = patient.Reports.SugarReports;
-                sugarReport.push(JSON.parse(Report));
-                patient.Reports.SugarReports = sugarReport;
+            }
+            case 'SugarReports': {
+                if (typeof patient.Reports === 'undefined') {
+                    const Reports = {};
+                    const sugarReport = [];
+                    sugarReport.push(JSON.parse(Report));
+                    Reports.SugarReports = sugarReport;
+                    patient.Reports = Reports;
+                }
+                else {
+                    if (typeof patient.Reports.SugarReports === 'undefined') {
+                        const sugarReport = [];
+                        sugarReport.push(JSON.parse(Report));
+                        patient.Reports.SugarReports = sugarReport;
+                    }
+                    else {
+                        const sugarReport = patient.Reports.SugarReports;
+                        sugarReport.push(JSON.parse(Report));
+                        patient.Reports.SugarReports = sugarReport;
+                    }
+                }
                 break;
-            case 'ECGReports':
-                const ecgReport = patient.Reports.ECGReports;
-                ecgReport.push(JSON.parse(Report));
-                patient.Reports.ECGReports = ecgReport;
+            }
+            case 'ECGReports': {
+                if (typeof patient.Reports === 'undefined') {
+                    const Reports = {};
+                    const ecgReport = [];
+                    ecgReport.push(JSON.parse(Report));
+                    Reports.ECGReports = ecgReport;
+                    patient.Reports = Reports;
+                }
+                else {
+                    if (typeof patient.Reports.ECGReports === 'undefined') {
+                        const ecgReport = [];
+                        ecgReport.push(JSON.parse(Report));
+                        patient.Reports.ECGReports = ecgReport;
+                    }
+                    else {
+                        const ecgReport = patient.Reports.ECGReports;
+                        ecgReport.push(JSON.parse(Report));
+                        patient.Reports.ECGReports = ecgReport;
+                    }
+                }
                 break;
+            }
             default:
-                return 'Error: Report Type not defined';
+                return 'Error: Report Type not defined or Invalid Report type';
         }
+        console.log(flag, patient, patient.Reports.BloodReports);
         await ctx.stub.putState(id, Buffer.from(JSON.stringify(patient)));
+        console.log('why this shit aint working');
+        console.log(flag, patient, patient.Reports.BloodReports);
     }
     async GetReports(ctx, reportType, id) {
-        const existPatient = await this.PatientExists(ctx, id);
-        if (!existPatient) {
-            throw new Error(`Patient with ID : ${id} does not exist`);
-        }
         const patientRecord = await this.ReadPatientRecord(ctx, id);
+        var patient = JSON.parse(patientRecord.toString());
+        if (typeof patient.Reports === 'undefined') {
+            return 'No Reports Available';
+        }
         switch (reportType) {
             case 'BloodReports':
-                var patient = JSON.parse(patientRecord.toString());
-                if (patient.Reports.BloodReports.length === 0) {
-                    return 0;
+                if (typeof patient.Reports.BloodReports === 'undefined') {
+                    return `No reports available in ${reportType} section for this patient`;
                 }
                 return patient.Reports.BloodReports;
             case 'SugarReports':
-                var patient = JSON.parse(patientRecord.toString());
-                if (patient.Reports.SugarReports.length === 0) {
-                    return 0;
+                if (typeof patient.Reports.SugarReports === 'undefined') {
+                    return `No reports available in ${reportType} section for this patient`;
                 }
                 return patient.Reports.SugarReports;
             case 'ECGReports':
-                var patient = JSON.parse(patientRecord.toString());
-                if (patient.Reports.ECGReports.length === 0) {
-                    return 0;
+                if (typeof patient.Reports.SugarReports === 'undefined') {
+                    return `No reports available in ${reportType} section for this patient`;
                 }
                 return patient.Reports.ECGReports;
             default:
@@ -210,10 +254,6 @@ class PatientDetailsContract extends fabric_contract_api_1.Contract {
      * @returns Patient's Public key
      */
     async GetPublicKey(ctx, id) {
-        const existPatient = await this.PatientExists(ctx, id);
-        if (!existPatient) {
-            throw new Error(`Patient with ID : ${id} does not exist`);
-        }
         const patientRecord = await this.ReadPatientRecord(ctx, id);
         var patient = JSON.parse(patientRecord.toString());
         return patient.PublicKey;
