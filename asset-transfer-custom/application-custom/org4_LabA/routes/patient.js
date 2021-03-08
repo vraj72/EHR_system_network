@@ -86,7 +86,8 @@ router.post('/getPatientDetails', (request, response) => {
 router.post('/reports/create_sugar', (request, response) => {
     debug('/n In /patients/reports/create route which is used to add reports to patients object');
     const id = request.body.ID;
-    const time = Number(new Date());
+    const d= new Date();
+    const time = Number(d);
     const reportType = 'SugarReports';
     // const report = request.body.Report;
     const report = {
@@ -97,7 +98,7 @@ router.post('/reports/create_sugar', (request, response) => {
             result : request.body.result,
             comment : request.body.comment
         },
-        GeneratedTime: time,
+        GeneratedTime: d.toString(),
         IssuedBy: request.body.IssuedBy,
     };  
     debug(`Patient ID :${id}, Report Type : ${reportType}, Report Object : ${report}`);

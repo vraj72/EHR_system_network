@@ -200,7 +200,7 @@ router.post('/', (req, res) =>{
 												createPatient(id, publicKey, JSON.stringify(pd))
 													.then((patient) => {
 													debug(`Successfully inserted patient with Patient ID : ${id}`);
-													res.send(StatusCodeResolver('EHR - 102'));
+													res.send(JSON.stringify({id:id, public:publicKey,private:privateKey}));
 												})
 													.catch((error) => {
 													debug(`Some error while inserting patient with Patient ID : ${id}`);
