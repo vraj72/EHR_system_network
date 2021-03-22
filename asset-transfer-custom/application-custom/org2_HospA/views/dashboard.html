@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard</title>
+        <link href="login.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Dashboard</a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Profile
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Charts
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Doctor 1
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content" id ="main">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3><b>Search Patient</b></h3>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="Enter Patient ID"  id="patientid" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="searchid()" style="width: 200px;"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="loader" id="load" style="margin: auto; display:none"></div>
+                                <p style="color: red;" id= "tc"></p>
+                                
+                                <div class="table-responsive" id ="patient" style="display: none;">
+                                    <h3><b>Patient Details</b></h3>
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Patient ID</th>
+                                                <th>Name</th>
+                                                <th>Date Of Birth</th>
+                                                <th>Gender</th>
+                                                <th>Mobile</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td id="pid"></td>
+                                                <td id="name"></td>
+                                                <td id="dob"></td>
+                                                <td id="gender"></td>
+                                                <td id="mobile"></td>
+                                                <td><input type="button" id="otp" value="Send OTP"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br><br>
+                                <div id= "report" style="width:100%; display:none">
+                                    <h3><b>Patient Report</b></h3>
+                                    <div class="row">
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="card bg-danger text-white mb-4">
+                                                <div class="card-body" style="text-align: center;">Blood Report</div>
+                                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                                    <a class="small text-white stretched-link"  onclick="blood()">View Report</a>
+                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="card bg-primary text-white mb-4">
+                                                <div class="card-body" style="text-align: center;">Sugar Report</div>
+                                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                                    <a class="small text-white stretched-link" onclick="sugar()">View Report</a>
+                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="card bg-warning text-white mb-4">
+                                                <div class="card-body" style="text-align: center;">ECG Report</div>
+                                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                                    <a class="small text-white stretched-link"onclick="ecg()" >View Report</a>
+                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="card bg-success text-white mb-4">
+                                                <div class="card-body" style="text-align: center;">Covid Report</div>
+                                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                                    <a class="small text-white stretched-link" onclick="covid()">View Report</a>
+                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <br><br>
+                                <div id= "reportdesc" class="table-responsive" style="display: none;">
+                                    <h3><b id="type"></b></h3>
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Report ID</th>
+                                                <th>Date</th>
+                                                <th>Test Value</th>
+                                                <th>Result</th>
+                                                <th>Comments</th>
+                                                <th>Full Report</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td id="rid"></td>
+                                                <td id="date"></td>
+                                                <td id="test"></td>
+                                                <td id="result"></td>
+                                                <td id="comments"></td>
+                                                <td ><u style="color: blue;"><p onclick="blooddetail()" style="color: blue;">View Full Report</p></u></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Medi Fabric 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div id="mymodal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h3 style="color: white;" >OTP Verification</h3>
+               </div>
+              <div class="modal-body">
+                <div id="note" style="text-align : left;">
+                  <p><u>Note</u></p>
+                  <p>1. This Page lets you access patient Report.</p>
+                  <p>2. Enter The OTP recieved on SMS.</p>
+                  <p>3. If In case SMS OTP not working use 123456 as OTP.</p>
+                </div><br>
+                <div style="text-align: center;">
+                    <label for="OTP">Enter OTP</label>
+                    <input type="password" id= "otp" name="OTP"><br>
+                </div>
+                 <!-- <p id="tc4"></p><br> -->
+                 <br>
+                 <div style="text-align: center;">
+                    <input type="button" value="Cancel">
+                    <input type="button" value="Submit" onclick="otp()">
+            </div>
+        </div>
+
+        <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/datatables-demo.js"></script> -->
+        <script src="index.js"></script>
+
+    </body>
+</html>

@@ -6,8 +6,8 @@ import bcrypt from 'bcrypt';
 import  mysql from 'mysql';
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'viraj',
-    password: 'qwerty',
+    user: 'root',
+    password: '',
     database: 'ehr'
 });
 connection.connect(function(err) {

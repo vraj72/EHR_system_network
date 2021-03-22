@@ -14,7 +14,7 @@ async function createPatient(id, public_key, PersonalDetails) {
     let patientExists = await contract.evaluateTransaction('PatientExists', id);
     return patientExists.toString();
 }
-router.post('/', (request, response) => {
+router.post('/search', (request, response) => {
     let id = request.body.id;
     getPatient(id).then((result) => {
         response.send(JSON.parse(result.toString()));
