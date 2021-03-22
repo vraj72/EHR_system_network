@@ -1,0 +1,38 @@
+[
+    {
+        "PatientID": "patient1",
+        "PublicKey": "",
+        "PersonalDetails": {
+            "Name": "Kyle Mendez",
+            "Username": "Kyle@gmail.com",
+            "Gender": "Male",
+            "Mobile": "1236547895",
+            "Address": "India",
+            "DateOfBirth": "18-03-1984"
+        }
+    },
+    {
+        "PatientID": "patient2",
+        "PublicKey": "",
+        "PersonalDetails": {
+            "Name": "Suzanne",
+            "Username": "suzzan@yahoo.com",
+            "Gender": "Female",
+            "Mobile": "7896541230",
+            "Address": "India",
+            "DateOfBirth": "17-03-1980"
+        }
+    },
+    {
+        "PatientID": "patient3",
+        "PublicKey": "",
+        "PersonalDetails": {
+            "Name": "Axar",
+            "Username": "axe@gmail.com",
+            "Gender": "Male",
+            "Mobile": "7896521430",
+            "Address": "India",
+            "DateOfBirth": "10-04-258"
+        }
+    }
+]
