@@ -27,3 +27,4 @@ organizations/fabric-ca/org2/msp/keystore/*
 organizations/fabric-ca/org3/msp/keystore/*
 organizations/fabric-ca/org4/msp/keystore/*
 organizations/fabric-ca/org5/msp/keystore/*
+*.pem
