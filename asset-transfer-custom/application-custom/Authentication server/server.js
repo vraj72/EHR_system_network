@@ -19,19 +19,25 @@ const __dirname = path.resolve();
 //     cert: fs.readFileSync('certificates/certificate.crt')
 // };
 
-import  register from './routes/register.js';
-import  login from './routes/login.js';
-import report from './routes/sugar.js';
-import profile from './routes/profile.js';
-import feedback from './routes/feedback.js';
-import upload from './routes/image.js';
+// import  register from './routes/register.js';
+// import  login from './routes/login.js';
+// import report from './routes/sugar.js';
+// import profile from './routes/profile.js';
+// import feedback from './routes/feedback.js';
+// import upload from './routes/image.js';
+import combined from './routes/combined.js';
+import combined_patient from './routes/combined_Patient.js';
+import combined_permission from './routes/combined_Permission.js';
 
-app.use('/register',register);
-app.use('/login',login);
-app.use('/report',report);
-app.use('/profile',profile);
-app.use('/feedback',feedback);
-app.use('/upload',upload);
+// app.use('/register',register);
+// app.use('/login',login);
+// app.use('/report',report);
+// app.use('/profile',profile);
+// app.use('/feedback',feedback);
+// app.use('/upload',upload);
+app.use('/',combined);
+app.use('/',combined_patient);
+app.use('/permission',combined_permission);
 
 //Image Viewing Permission
 app.use('/images', express.static(__dirname + '/images'));
