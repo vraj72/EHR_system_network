@@ -6,7 +6,7 @@ import  bcrypt from 'bcrypt';
 import  {generateKeyPair} from 'crypto'
 import http from 'http';
 import Debug from 'debug';
-const debug = Debug('routes:register');
+const debug = Debug('routes:combined_patient');
 const channelName = 'mychannel';
 const chaincodeName = 'custom';
 const network = await gateway.getNetwork(channelName);
@@ -45,6 +45,17 @@ async function patientExists(id) {
     return patientExists.toString();
 }
 
+async function getReports(id, reportType) {
+    let temp = await contract.evaluateTransaction('GetReports', reportType, id);
+    let reports = temp.toString();
+    try {
+        return JSON.parse(temp.toString());
+    }
+    catch (error) {
+        return reports;
+    }
+}
+
 
 function StatusCodeResolver(status_code) {
     switch (status_code) {
@@ -75,7 +86,7 @@ function StatusCodeResolver(status_code) {
 
 
 //Register 
-router.post('/', (req, res) =>{
+router.post('/register/register', (req, res) =>{
 
 	var name = req.body.name;
 	var email = req.body.email;
@@ -232,5 +243,91 @@ router.post('/', (req, res) =>{
 		}
 	});
 });
+
+
+
+router.post('/report/sugar', (request, response) => {
+    debug('\nIn /reports route which return all patient reports');
+    const id = request.body.ID;
+    const reportType = "SugarReports";
+    console.log(`Patient ID : ${id}, Type of Reports requested: ${reportType}`);
+    patientExists(id)
+        .then((patientExist) => {
+        if (patientExist !== 'true') {
+            debug(`Did not find any Patient with Patient ID : ${id}. The Patient's Reports cannot be fetched`);
+            response.send(StatusCodeResolver('EHR - 021'));
+        }
+        else {
+            getReports(id, reportType)
+                .then((result) => {
+                if (Array.from(result).length === 0) {
+                    debug('The Returned Array had zero values in it');
+                    debug(`Reports of type ${reportType} : ${Array.from(result)}`);
+                    response.send(`No reports were found for the type ${reportType} for Patient ID : ${id}`);
+                }
+                else {
+                    response.send(result);
+                }
+            })
+                .catch((error) => {
+                debug(`Some error in fetching Reports of patient with Patient ID : ${id}`);
+                debug(`Error : ${error.name}`);
+                debug(`Error message : ${error.message}`);
+                debug(`Error stack : ${error.stack}`);
+                response.send(StatusCodeResolver('EHR - 022'));
+            });
+        }
+    })
+        .catch((error) => {
+        debug(`Encountered Unhandled Error in /patient/ route`);
+        console.log(`Error : ${error.name}`);
+        console.log(`Error message : ${error.message}`);
+        debug(`Error stack : ${error.stack}`);
+        response.send(StatusCodeResolver('EHR - 081'));
+    });
+});
+
+router.post('/report/blood', (request, response) => {
+    debug('\nIn /reports route which return all patient reports');
+    const id = request.body.ID;
+    const reportType = "BloodReports";
+    console.log(`Patient ID : ${id}, Type of Reports requested: ${reportType}`);
+    patientExists(id)
+        .then((patientExist) => {
+        if (patientExist !== 'true') {
+            debug(`Did not find any Patient with Patient ID : ${id}. The Patient's Reports cannot be fetched`);
+            response.send(StatusCodeResolver('EHR - 021'));
+        }
+        else {
+            getReports(id, reportType)
+                .then((result) => {
+                if (Array.from(result).length === 0) {
+                    debug('The Returned Array had zero values in it');
+                    debug(`Reports of type ${reportType} : ${Array.from(result)}`);
+                    response.send(`No reports were found for the type ${reportType} for Patient ID : ${id}`);
+                }
+                else {
+                    response.send(result);
+                }
+            })
+                .catch((error) => {
+                debug(`Some error in fetching Reports of patient with Patient ID : ${id}`);
+                debug(`Error : ${error.name}`);
+                debug(`Error message : ${error.message}`);
+                debug(`Error stack : ${error.stack}`);
+                response.send(StatusCodeResolver('EHR - 022'));
+            });
+        }
+    })
+        .catch((error) => {
+        debug(`Encountered Unhandled Error in /patient/ route`);
+        console.log(`Error : ${error.name}`);
+        console.log(`Error message : ${error.message}`);
+        debug(`Error stack : ${error.stack}`);
+        response.send(StatusCodeResolver('EHR - 081'));
+    });
+});
+
+
 
 export default router;
