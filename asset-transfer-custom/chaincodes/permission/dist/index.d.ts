@@ -1,0 +1,1 @@
+export { PermissionContract } from './Permission';

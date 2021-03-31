@@ -1,5 +1,5 @@
 import express from 'express';
-import gateway from './../gateway.js';
+import {gateway} from './../gateway.js';
 const router = express.Router();
 const channelName = 'mychannel';
 const chaincodeName = 'custom';

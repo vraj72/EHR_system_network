@@ -1,6 +1,7 @@
 import express from 'express';
 //server imports
 import patient from './routes/patient.js';
+import permission from './routes/permission.js';
 const app = express();
 app.use(express.json());
 import path from 'path';
@@ -14,6 +15,8 @@ app.use(cors({
 //server variables
 const port = 9060;
 app.use('/patient', patient);
+
+app.use('/permission', permission);
 
 app.get('/',(req,res) =>{
 	res.sendFile(path.join(__dirname+'/views/index.html'));
