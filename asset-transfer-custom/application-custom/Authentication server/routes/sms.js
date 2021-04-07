@@ -20,8 +20,8 @@ con.connect(function (err) {
 
 
 //SMS
-const accountSid = 'AC8d3db9fb8e4c814755faccf55e2bab06';
-const authToken = 'bbff097f121fa00ec7be84644d9ba6bd';
+const accountSid = '';
+const authToken = '';
 // const client = require('twilio')(accountSid, authToken);
 import twilio from 'twilio'; 
 const client = (twilio) (accountSid,authToken);

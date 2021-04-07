@@ -5,12 +5,13 @@
  */
 
 'use strict';
-import fs from 'fs'
-import path from 'path'
-const __dirname = path.resolve(path.dirname(''))
-function buildCCPOrg1 () {
+
+const fs = require('fs');
+const path = require('path');
+
+exports.buildCCPOrg1 = () => {
 	// load the common connection configuration file
-	const ccpPath = path.resolve(__dirname, '..', '..','..' ,'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+	const ccpPath = path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
 	const fileExists = fs.existsSync(ccpPath);
 	if (!fileExists) {
 		throw new Error(`no such file or directory: ${ccpPath}`);
@@ -24,9 +25,9 @@ function buildCCPOrg1 () {
 	return ccp;
 };
 
-function buildCCPOrg2 (){
+exports.buildCCPOrg2 = () => {
 	// load the common connection configuration file
-	const ccpPath = path.resolve(__dirname, '..', '..','..',
+	const ccpPath = path.resolve(__dirname, '..', '..',
 		'organizations', 'peerOrganizations', 'org2.example.com', 'connection-org2.json');
 	const fileExists = fs.existsSync(ccpPath);
 	if (!fileExists) {
@@ -41,42 +42,24 @@ function buildCCPOrg2 (){
 	return ccp;
 };
 
-function buildCCPOrg3(){
-        // load the common connection configuration file
-        const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org3.example.com', 'connection-org3.json');
-        const fileExists = fs.existsSync(ccpPath);
-        if (!fileExists) {
-                throw new Error(`no such file or directory: ${ccpPath}`);
-        }
-        const contents = fs.readFileSync(ccpPath, 'utf8');
+exports.buildCCPOrg3 = () => {
+	// load the common connection configuration file
+	const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org3.example.com', 'connection-org3.json');
+	const fileExists = fs.existsSync(ccpPath);
+	if (!fileExists) {
+		throw new Error(`no such file or directory: ${ccpPath}`);
+	}
+	const contents = fs.readFileSync(ccpPath, 'utf8');
 
-        // build a JSON object from the file contents
-        const ccp = JSON.parse(contents);
+	// build a JSON object from the file contents
+	const ccp = JSON.parse(contents);
 
-        console.log(`Loaded the network configuration located at ${ccpPath}`);
-        return ccp;
+	console.log(`Loaded the network configuration located at ${ccpPath}`);
+	return ccp;
 };
 
 
-
-function buildCCPOrg5(){
-        // load the common connection configuration file
-        const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org5.example.com', 'connection-org5.json');
-        const fileExists = fs.existsSync(ccpPath);
-        if (!fileExists) {
-                throw new Error(`no such file or directory: ${ccpPath}`);
-        }
-        const contents = fs.readFileSync(ccpPath, 'utf8');
-
-        // build a JSON object from the file contents
-        const ccp = JSON.parse(contents);
-
-        console.log(`Loaded the network configuration located at ${ccpPath}`);
-        return ccp;
-};
-
-
-function buildCCPOrg4 (){
+exports.buildCCPOrg4 = () => {
 	// load the common connection configuration file
 	const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org4.example.com', 'connection-org4.json');
 	const fileExists = fs.existsSync(ccpPath);
@@ -92,8 +75,25 @@ function buildCCPOrg4 (){
 	return ccp;
 };
 
+exports.buildCCPOrg5 = () => {
+	// load the common connection configuration file
+	const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org5.example.com', 'connection-org5.json');
+	const fileExists = fs.existsSync(ccpPath);
+	if (!fileExists) {
+		throw new Error(`no such file or directory: ${ccpPath}`);
+	}
+	const contents = fs.readFileSync(ccpPath, 'utf8');
 
-async function buildWallet(Wallets, walletPath){
+	// build a JSON object from the file contents
+	const ccp = JSON.parse(contents);
+
+	console.log(`Loaded the network configuration located at ${ccpPath}`);
+	return ccp;
+};
+
+
+
+exports.buildWallet = async (Wallets, walletPath) => {
 	// Create a new  wallet : Note that wallet is for managing identities.
 	let wallet;
 	if (walletPath) {
@@ -107,7 +107,7 @@ async function buildWallet(Wallets, walletPath){
 	return wallet;
 };
 
-function prettyJSONString(inputString){
+exports.prettyJSONString = (inputString) => {
 	if (inputString) {
 		 return JSON.stringify(JSON.parse(inputString), null, 2);
 	}
@@ -115,4 +115,3 @@ function prettyJSONString(inputString){
 		 return inputString;
 	}
 }
- export { buildWallet, buildCCPOrg1, buildCCPOrg2, buildCCPOrg3, buildCCPOrg4, buildCCPOrg5};
