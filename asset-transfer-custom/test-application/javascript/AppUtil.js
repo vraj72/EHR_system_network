@@ -4,12 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/*
+ * Copyright IBM Corp. All Rights Reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 'use strict';
-
-const fs = require('fs');
-const path = require('path');
-
-exports.buildCCPOrg1 = () => {
+import fs from 'fs'
+import path from 'path'
+// const fs = require('fs');
+// const path = require('path');
+var __dirname  = path.resolve(path.dirname(''))
+function buildCCPOrg1(){
 	// load the common connection configuration file
 	const ccpPath = path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
 	const fileExists = fs.existsSync(ccpPath);
@@ -25,7 +32,7 @@ exports.buildCCPOrg1 = () => {
 	return ccp;
 };
 
-exports.buildCCPOrg2 = () => {
+function buildCCPOrg2(){
 	// load the common connection configuration file
 	const ccpPath = path.resolve(__dirname, '..', '..',
 		'organizations', 'peerOrganizations', 'org2.example.com', 'connection-org2.json');
@@ -42,7 +49,7 @@ exports.buildCCPOrg2 = () => {
 	return ccp;
 };
 
-exports.buildCCPOrg3 = () => {
+function buildCCPOrg3(){
 	// load the common connection configuration file
 	const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org3.example.com', 'connection-org3.json');
 	const fileExists = fs.existsSync(ccpPath);
@@ -59,7 +66,7 @@ exports.buildCCPOrg3 = () => {
 };
 
 
-exports.buildCCPOrg4 = () => {
+function buildCCPOrg4(){
 	// load the common connection configuration file
 	const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org4.example.com', 'connection-org4.json');
 	const fileExists = fs.existsSync(ccpPath);
@@ -75,7 +82,7 @@ exports.buildCCPOrg4 = () => {
 	return ccp;
 };
 
-exports.buildCCPOrg5 = () => {
+function buildCCPOrg5(){
 	// load the common connection configuration file
 	const ccpPath = path.resolve(__dirname, '..', '..','..', 'organizations', 'peerOrganizations', 'org5.example.com', 'connection-org5.json');
 	const fileExists = fs.existsSync(ccpPath);
@@ -91,7 +98,7 @@ exports.buildCCPOrg5 = () => {
 	return ccp;
 };
 
-exports.buildWallet = async (Wallets, walletPath) => {
+async function buildWallet(Wallets, walletPath){
 	// Create a new  wallet : Note that wallet is for managing identities.
 	let wallet;
 	if (walletPath) {
@@ -105,7 +112,7 @@ exports.buildWallet = async (Wallets, walletPath) => {
 	return wallet;
 };
 
-exports.prettyJSONString = (inputString) => {
+function prettyJSONString(inputString){
 	if (inputString) {
 		 return JSON.stringify(JSON.parse(inputString), null, 2);
 	}
@@ -113,3 +120,5 @@ exports.prettyJSONString = (inputString) => {
 		 return inputString;
 	}
 }
+export { buildCCPOrg1, buildCCPOrg2 , buildCCPOrg3, buildCCPOrg4 , buildCCPOrg5 , buildWallet }
+

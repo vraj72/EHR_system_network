@@ -61,7 +61,7 @@
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
+                                History
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
@@ -93,11 +93,11 @@
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Feedback
                             </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                About us
                             </a>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                                                 <th>Date Of Birth</th>
                                                 <th>Gender</th>
                                                 <th>Mobile</th>
-                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -143,8 +143,7 @@
                                                 <td id="name"></td>
                                                 <td id="dob"></td>
                                                 <td id="gender"></td>
-                                                <td id="mobile"></td>
-                                                <td><input type="button" id="otp" value="Send OTP"></td>
+                                                <td id="mobile"></td> 
                                             </tr>
                                         </tbody>
                                     </table>
@@ -193,30 +192,16 @@
                                     </div>
                                 </div>
                                 <br><br>
-                                <div id= "reportdesc" class="table-responsive" style="display: none;">
+                                <div id= "reportdesc" class="table-responsive" style="display: none" width ="100%">
                                     <h3><b id="type"></b></h3>
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Report ID</th>
-                                                <th>Date</th>
-                                                <th>Test Value</th>
-                                                <th>Result</th>
-                                                <th>Comments</th>
-                                                <th>Full Report</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td id="rid"></td>
-                                                <td id="date"></td>
-                                                <td id="test"></td>
-                                                <td id="result"></td>
-                                                <td id="comments"></td>
-                                                <td ><u style="color: blue;"><p onclick="blooddetail()" style="color: blue;">View Full Report</p></u></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                </div>
+                                <div id= "sugarlist" class="table-responsive" style="display: none" width ="100%">
+                                    <h3><b id="type1"></b></h3>
+                                </div>
+                                <div style="text-align: center;">
+                                    <input type="button" id="request" onclick=request() value="Permission Request" style="display: none;">
+                                    <div class="loader" id="loading" style="margin: auto; display:none"></div>
+                                    <!-- <input type="button" id="sotp" onclick=sendotp() value="Send OTP" style="display: none;"> -->
                                 </div>
                             </div>
                         </div>
@@ -252,7 +237,7 @@
                 </div><br>
                 <div style="text-align: center;">
                     <label for="OTP">Enter OTP</label>
-                    <input type="password" id= "otp" name="OTP"><br>
+                    <input type="password" id= "otp1" name="OTP"><br>
                 </div>
                  <!-- <p id="tc4"></p><br> -->
                  <br>

@@ -1,12 +1,12 @@
 import  express  from 'express';
 import  mysql from 'mysql';
 const router = express.Router();
-import gateway from './../gateway.js';
+import {gateway1} from './../gateway.js';
 import Debug from 'debug';
 const debug = Debug('routes:combined_permission');
 const channelName = 'mychannel';
 const chaincodeName = 'permission';
-const network = await gateway.getNetwork(channelName);
+const network = await gateway1.getNetwork(channelName);
 const contract = network.getContract(chaincodeName);
 
 

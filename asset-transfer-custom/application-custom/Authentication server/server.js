@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'express'
 var app = express();
 import bodyParser from 'body-parser';
 app.use(bodyParser.json());
@@ -28,7 +28,7 @@ const __dirname = path.resolve();
 import combined from './routes/combined.js';
 import combined_patient from './routes/combined_Patient.js';
 import combined_permission from './routes/combined_Permission.js';
-import sms from './routes/sms.js';
+//import sms from './routes/sms.js';
 
 // app.use('/register',register);
 // app.use('/login',login);
@@ -41,11 +41,11 @@ import sms from './routes/sms.js';
 
 app.use('/',combined);
 app.use('/',combined_patient);
-app.use('/permission',combined_permission);
-app.use('/sms',sms);
+ app.use('/permission',combined_permission);
+// app.use('/sms',sms);
 
 //Image Viewing Permission
-app.use('/images', express.static(__dirname + '/images'));
+// app.use('/images', express.static(__dirname + '/images'));
 
 //Port activation HTTPS
 // https.createServer(options, app).listen(8000,function() {

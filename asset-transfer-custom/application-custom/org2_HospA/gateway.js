@@ -3,6 +3,9 @@ import FabricCAServices from 'fabric-ca-client';
 import path from 'path';
 //@ts-ignore
 import { buildCCPOrg2, buildWallet } from './../../../test-application/javascript/AppUtil.js';
+//import buildWallet from './../../../test-application/javascript/AppUtil.js';
+//import buildCCPOrg2 from './../../../test-application/javascript/AppUtil.js';
+
 //@ts-ignore
 import { buildCAClient, registerAndEnrollUser, enrollAdmin } from './../../../test-application/javascript/CAUtil.js';
 const __dirname = path.resolve();

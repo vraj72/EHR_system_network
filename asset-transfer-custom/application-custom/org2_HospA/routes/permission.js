@@ -10,6 +10,11 @@ async function CreatePermission(id, P_ID, R_ID, D_ID, Timestamp, StatusOfRequest
     await contract.submitTransaction('CreatePermission', id, P_ID, R_ID, D_ID, Timestamp, StatusOfRequest, Organization, RequestedTime);
 }
 
+async function ReadPermission(id) {
+    let report = await contract.evaluateTransaction('ReadPermission', id);
+    return report.toString();
+}
+
 router.post('/create', (request, response) => {
     let id = request.body.id
     let P_ID = request.body.pid
@@ -27,6 +32,19 @@ router.post('/create', (request, response) => {
         console.log(error)
         response.send("Permission Not Succesfully Inserted")
     }); 
+});
+
+router.post('/list', (request, response) => {
+    let id = request.body.id
+    ReadPermission(id)
+    .then((result) => {
+        response.send(result)
+    })
+    .catch((error) => {
+        console.log(error)
+        response.send("Permission Not Succesfully Listed")
+    });
+
 });
 
 export default router;
