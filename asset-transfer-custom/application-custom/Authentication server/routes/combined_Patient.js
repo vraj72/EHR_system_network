@@ -1,7 +1,7 @@
 import  express  from 'express';
 import  mysql from 'mysql';
 const router = express.Router();
-import gateway from './../gateway.js';
+import {gateway} from './../gateway.js';
 import  bcrypt from 'bcrypt';
 import  {generateKeyPair} from 'crypto'
 import http from 'http';
@@ -201,7 +201,7 @@ router.post('/register/register', (req, res) =>{
 										pd["Gender"] = gender;
 										pd["Mobile"] = phone;
 										pd["Address"] = address;
-										publicKey = publicKey.replace(/(\r\n|\n|\r)/gm, "");
+										//publicKey = publicKey.replace(/(\r\n|\n|\r)/gm, "");
 
 										debug(`Patient ID : ${id}, Public Key : ${publicKey}, Personal Details of Patient :${pd}`);
 										patientExists(id)

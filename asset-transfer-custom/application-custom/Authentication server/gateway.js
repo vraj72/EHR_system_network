@@ -20,4 +20,12 @@ await gateway.connect(ccp, {
     identity: org1UserId,
     discovery: { enabled: true, asLocalhost: true }
 });
-export default gateway;
+
+const gateway1 = new Gateway();
+await gateway1.connect(ccp, {
+    wallet,
+    identity: org1UserId,
+    discovery: { enabled: true, asLocalhost: true }
+});
+
+export {gateway,gateway1};

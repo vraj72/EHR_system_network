@@ -1,3 +1,4 @@
+import { publicEncrypt, privateDecrypt, constants } from 'crypto';
 import express from 'express';
 import Debug from 'debug';
 import path from 'path';
@@ -40,7 +41,26 @@ function StatusCodeResolver(status_code) {
     }
 }
 
-
+function encryption(key, data) {
+    let encryptedData = publicEncrypt({
+        key,
+        padding: constants.RSA_PKCS1_OAEP_PADDING,
+        oaepHash: 'sha256',
+    }, Buffer.from(JSON.stringify(data)));
+    return encryptedData;
+}
+function decryption(key, encryptedData) {
+    let decryptedData = privateDecrypt({
+        key,
+        padding: constants.RSA_PKCS1_OAEP_PADDING,
+        oaepHash: 'sha256',
+    }, Buffer.from(encryptedData));
+    return decryptedData.toString();
+}
+async function GetPublicKey(id) {
+    let publicKey = await contract.evaluateTransaction('GetPublicKey', id);
+    return publicKey.toString();
+}
 async function getPatient(id) {
     const patient = await contract.submitTransaction('ReadPatientRecord', id);
     return patient;
@@ -99,7 +119,10 @@ router.post('/reports/create_sugar', (request, response) => {
         },
         GeneratedTime: time,
         IssuedBy: request.body.IssuedBy,
-    };  
+    };
+GetPublicKey(id).then((result) => {
+console.log(typeof result)
+   //report.Content = encryption(result,report.Content);
     debug(`Patient ID :${id}, Report Type : ${reportType}, Report Object : ${report}`);
     console.log(id, reportType, report);
     patientExists(id)
@@ -129,6 +152,10 @@ router.post('/reports/create_sugar', (request, response) => {
         debug(`Error stack : ${error.stack}`);
         response.send(StatusCodeResolver('EHR - 081'));
     });
+
+
+});  
+
 });
 
 
@@ -141,7 +168,8 @@ router.post('/reports/create_blood', (request, response) => {
     const time = Number(d);
     const reportType = 'BloodReports';
     // const report = request.body.Report;
-    const report = {
+ 
+	const report = {
         ReportID:'B'+time,
         Content: {
             RBC:request.body.RBC,
@@ -154,7 +182,8 @@ router.post('/reports/create_blood', (request, response) => {
         },
         GeneratedTime: d.toString(),
         IssuedBy: request.body.IssuedBy,
-    };  
+    };
+	report.Content = encryption('',report.Content)  
     var reports = JSON.stringify(report);
     console.log(typeof reports, reports)
     debug(`Patient ID :${id}, Report Type : ${reportType}, Report Object : ${report}`);

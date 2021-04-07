@@ -1,6 +1,7 @@
 import express from 'express';
 //server imports
 import patient from './routes/patient.js';
+import permission from './routes/permission.js';
 const app = express();
 app.use(express.json());
 import path from 'path';
@@ -15,6 +16,8 @@ app.use(cors({
 const port = 9060;
 app.use('/patient', patient);
 
+app.use('/permission', permission);
+
 app.get('/',(req,res) =>{
 	res.sendFile(path.join(__dirname+'/views/index.html'));
 });
@@ -24,12 +27,17 @@ app.get('/login',(req,res) =>{
 app.get('/dashboard',(req,res) =>{
 	res.sendFile(path.join(__dirname+'/views/dashboard.html'));
 });
+app.get('/reportlist',(req,res) =>{
+	res.sendFile(path.join(__dirname+'/views/report.html'));
+});
 app.get('/BloodReport',(req,res) =>{
 	res.sendFile(path.join(__dirname+'/views/blood.html'));
 });
-app.get('/SuagrReport',(req,res) =>{
+app.get('/SugarReport',(req,res) =>{
 	res.sendFile(path.join(__dirname+'/views/sugar.html'));
 });
+
+
 
 app.use(express.static(__dirname + '/public'));
 

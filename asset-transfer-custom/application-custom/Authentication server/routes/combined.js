@@ -1,5 +1,5 @@
 import  express  from 'express';
-import  mysql from 'mysql';
+//import  mysql from 'mysql';
 const router = express.Router();
 import nodemailer from 'nodemailer';
 import bcrypt from 'bcrypt';
@@ -18,11 +18,11 @@ var transporter = nodemailer.createTransport({
   });
 
   // MySQL Connection
-// var mysql = require('mysql');
+import mysql from 'mysql';
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'viraj',
-    password: 'qwerty',
+    user: 'root',
+    password: '',
     database: 'ehr'
 });
 connection.connect(function(err) {

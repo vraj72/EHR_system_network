@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard</title>
+        <title>Sugar Report</title>
         <link href="login.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
+                                History
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
@@ -93,11 +93,11 @@
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Feedback
                             </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                About us
                             </a>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content" id ="main">
+            <div id="layoutSidenav_content" id ="main" >
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Sugar Report</h1> 
@@ -117,43 +117,37 @@
                                 <table>
                                     <tr>
                                         <td><label><strong>Patient Id: </strong></label></td>
-                                        <td><label id="pid"></label></td>
+                                        <td><label id="pid">20210405</label></td>
                                         <td><label><strong>Name: </strong></label></td>
-                                        <td><label id="name"></label></td>
+                                        <td><label id="name">Saurabh Yadav</label></td>
                                         <td><label><strong>Date Of Birth: </strong></label></td>
-                                        <td><label id="dob"></label></td>
+                                        <td><label id="dob">1998-09-25</label></td>
                                     </tr>
                                     <tr>
                                         <td><label><strong>Gender: </strong></label></td>
-                                        <td><label id="gender"></label></td>
+                                        <td><label id="gender">Male</label></td>
                                         <td><label><strong>Mobile No: </strong></label></td>
-                                        <td><label id="mob"></label></td>
+                                        <td><label id="mob">9876543210</label></td>
                                         <td><label><strong>Address: </strong></label></td>
-                                        <td><label id="add"></label></td>
+                                        <td><label id="add">aaaaa</label></td>
                                     </tr>
                                 </table>
                                 <hr>
                                 <h3 style="text-align: left;">Report Details</h3>
                                 <table>
                                     <tr>
-                                        <td><label><strong>Report Id: </strong></label></td>
-                                        <td><label id="rid"></label></td>
-                                        <td><label><strong>Haemoglobin: </strong></label></td>
-                                        <td><label id="hbg"></label></td>
-                                        <td><label><strong>RBC: </strong></label></td>
-                                        <td><label id="rbc"></label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><strong>HCT: </strong></label></td>
-                                        <td><label id="hct"></label></td>
-                                        <td><label><strong>ESR: </strong></label></td>
-                                        <td><label id="esr"></label></td>
-                                        <td><label><strong>WBC: </strong></label></td>
-                                        <td><label id="wbc"></label></td>
+                                        <!-- <td><label><strong>Report Id: </strong></label></td>
+                                        <td><label id="rid"></label></td> -->
+                                        <td><label><strong>Type: </strong></label></td>
+                                        <td><label id="type">HBA1c</label></td>
+                                        <td><label><strong>Value: </strong></label></td>
+                                        <td><label id="val">100</label></td>
+                                        <td><label><strong>Result: </strong></label></td>
+                                        <td><label id="res">Positive</label></td>
                                     </tr>
                                     <tr>
                                         <td><label><strong>Comments: </strong></label></td>
-                                        <td><label id="comm"></label></td>
+                                        <td><label id="comm">Testing</label></td>
                                 </table>
                             </div>
                     </div>

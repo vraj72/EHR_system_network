@@ -3,6 +3,9 @@ import FabricCAServices from 'fabric-ca-client';
 import path from 'path';
 //@ts-ignore
 import { buildCCPOrg2, buildWallet } from './../../../test-application/javascript/AppUtil.js';
+//import buildWallet from './../../../test-application/javascript/AppUtil.js';
+//import buildCCPOrg2 from './../../../test-application/javascript/AppUtil.js';
+
 //@ts-ignore
 import { buildCAClient, registerAndEnrollUser, enrollAdmin } from './../../../test-application/javascript/CAUtil.js';
 const __dirname = path.resolve();
@@ -20,4 +23,12 @@ await gateway.connect(ccp, {
     identity: org2UserId,
     discovery: { enabled: true, asLocalhost: true }
 });
-export default gateway;
+
+const gateway1 = new Gateway();
+await gateway1.connect(ccp, {
+    wallet,
+    identity: org2UserId,
+    discovery: { enabled: true, asLocalhost: true }
+});
+
+export {gateway, gateway1};
